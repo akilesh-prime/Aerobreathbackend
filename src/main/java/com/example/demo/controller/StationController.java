@@ -25,7 +25,7 @@ public class StationController {
     private final StationService stationService;
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ENVIRONMENTAL_OFFICER', 'CITIZEN', 'SYSTEM_ADMIN')")
+    @PreAuthorize("hasAnyRole('ENVIRONMENTAL_OFFICER', 'CITIZEN', 'SYSTEM_ADMIN', 'MEDICAL_RESEARCHER')")
     public ResponseEntity<List<SensorStation>> getAllStations() {
         return ResponseEntity.ok(stationService.getAllStations());
     }
