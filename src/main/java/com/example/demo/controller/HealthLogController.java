@@ -23,13 +23,13 @@ public class HealthLogController {
     private final HealthTrackingService healthTrackingService;
 
     @GetMapping
-    @PreAuthorize("hasRole('CITIZEN')")
+    @PreAuthorize("hasAnyRole('CITIZEN', 'SYSTEM_ADMIN')")
     public ResponseEntity<List<HealthObservation>> history(@AuthenticationPrincipal SystemUser user) {
         return ResponseEntity.ok(healthTrackingService.getUserHistory(user));
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('CITIZEN')")
+    @PreAuthorize("hasAnyRole('CITIZEN', 'SYSTEM_ADMIN')")
     public ResponseEntity<HealthObservation> logSymptoms(
             @AuthenticationPrincipal SystemUser user,
             @Valid @RequestBody ObservationDto request
