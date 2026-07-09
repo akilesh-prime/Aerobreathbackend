@@ -27,6 +27,9 @@ public class MetricProcessorService {
         metric.setPm25(dto.getPm25());
         metric.setPm10(dto.getPm10());
         metric.setRecordedAt(LocalDateTime.now());
+        station.setAqi(dto.getAqi());
+        station.setPm25(dto.getPm25());
+        station.setPm10(dto.getPm10());
         station.setDataCapacity(Math.min(100, (station.getDataCapacity() == null ? 0 : station.getDataCapacity()) + 5));
         stationRepository.save(station);
         return metricRepository.save(metric);
