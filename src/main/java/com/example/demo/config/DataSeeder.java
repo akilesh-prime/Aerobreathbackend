@@ -41,6 +41,9 @@ public class DataSeeder implements CommandLineRunner {
             station.setLongitude(new BigDecimal("80.2707"));
             station.setStatus(StationStatus.ACTIVE);
             station.setDataCapacity(45);
+            station.setAqi(118);
+            station.setPm25(new BigDecimal("42.5"));
+            station.setPm10(new BigDecimal("86.1"));
             SensorStation saved = stationRepository.save(station);
 
             AirQualityMetric metric = new AirQualityMetric();
