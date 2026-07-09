@@ -56,6 +56,14 @@ public class SensorStation {
     @Column(name = "data_capacity")
     private Integer dataCapacity = 0;
 
+    private Integer aqi;
+
+    @Column(precision = 10, scale = 2)
+    private BigDecimal pm25;
+
+    @Column(precision = 10, scale = 2)
+    private BigDecimal pm10;
+
     @Version
     private Long version;
 
